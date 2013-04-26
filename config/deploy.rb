@@ -11,7 +11,7 @@ set :unicorn_pid, "#{deploy_to}/shared/unicorn.pid"
 
 default_run_options[:shell] = 'bash -l'
 set :scm, :git
-set :repository,  "git@github.com:jjeffus/scan.git"
+set :repository,  "git@github.com:NetVersaLLC/cerebus_server.git"
 set :branch, 'master'
 set :git_shallow_clone, 1
 set :rails_env, :production
