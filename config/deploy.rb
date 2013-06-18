@@ -22,6 +22,12 @@ role :db,  *domain, :primary => true
 
 set :deploy_via, "remote_cache"
 
+task :link_keys do
+  run "ln -s #{shared_path}/keys #{release_path}/keys"
+end
+
+after 'deploy'           , 'link_keys'
+
 namespace :deploy do
   task :restart do
     run "if [ -f #{unicorn_pid} ]; then sudo service unicorn restart; else sudo service unicorn start; fi"
