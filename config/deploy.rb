@@ -1,12 +1,12 @@
 require 'bundler/capistrano'
 
 set :domain, File.open('servers.txt').read.split("\n")
-set :application, "scanner"
+set :application, "cerebus"
 set :deploy_to, "/home/ubuntu/app"
 set :user, "ubuntu"
 set :use_sudo, false
-set :ssh_options, { :keys => ["#{ENV['HOME']}/Dropbox/NetVersa2.pem"] }
-set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
+set :ssh_options, { :keys => ["#{ENV['HOME']}/Dropbox/new_keys/deploy/cerebus"] }
+set :unicorn_conf, "#{deploy_to}/shared/config/unicorn.rb"
 set :unicorn_pid, "#{deploy_to}/shared/unicorn.pid"
 
 default_run_options[:shell] = 'bash -l'
